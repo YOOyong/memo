@@ -1,4 +1,4 @@
-'''python
+```python
 from datetime import datetime, timedelta
 
 # 이걸 common 에 넣는다??
@@ -26,10 +26,10 @@ date_ranges = split_date_range(start_date, end_date, num_parts)
 
 for i, (start, end) in enumerate(date_ranges, start=1):
     print(f"Interval {i}: {start} - {end}")
-'''
+```
 
 
-'''python
+```python
 import cx_Oracle
 import threading
 
@@ -69,4 +69,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-'''
+```
