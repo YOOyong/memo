@@ -13,7 +13,7 @@
 
 
 
-# oracle to oracle 대비 리서치
+# oracle to oracle 대비 poc
 
 ## 방식
 - 임시 csv 파일 저장
