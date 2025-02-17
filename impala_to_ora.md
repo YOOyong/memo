@@ -1,6 +1,7 @@
 # impala to oracle
 - jaydebeapi 를 쓰니 쿼리 결과 타입 확인 필요.
 - cx_Oracle 에서 insert 할 수 있도록 형변환 필요. (datetime 등)
+- _java_lang_Double 등의 타입을 바로 oracle에 insert 할 수 있는지 확인 필요함.
 
 
 ```python
