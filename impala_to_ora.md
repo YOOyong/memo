@@ -3,6 +3,43 @@
 - cx_Oracle 에서 insert 할 수 있도록 형변환 필요. (datetime 등)
 - _java_lang_Double 등의 타입을 바로 oracle에 insert 할 수 있는지 확인 필요함.
 
+```python
+# converting 이게 더 나음
+# 쿼리 실행
+cursor.execute("SELECT col1, col2, col3 FROM your_table LIMIT 10;")
+rows = cursor.fetchall()
+
+# Java 객체를 Python 기본 타입으로 변환
+def convert_java_types(row):
+    converted_row = []
+    for x in row:
+        java_type = type(x).__name__  # Java 타입 확인
+        if "java" in java_type:  # Java 객체인 경우 변환
+            if "Double" in java_type or "Float" in java_type:
+                converted_row.append(float(x))
+            elif "Integer" in java_type or "Long" in java_type:
+                converted_row.append(int(x))
+            else:
+                converted_row.append(x)  # 변환할 필요 없는 경우 그대로 추가
+        else:
+            converted_row.append(x)  # 이미 Python 타입이면 그대로 추가
+    return tuple(converted_row)
+
+converted_rows = [convert_java_types(row) for row in rows]
+
+# 결과 출력
+for row in converted_rows:
+    print(row)
+
+# 연결 닫기
+cursor.close()
+conn.close()
+
+```
+
+
+
+
 
 ```python
 import jaydebeapi
